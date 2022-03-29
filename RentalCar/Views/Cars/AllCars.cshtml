@@ -1,0 +1,80 @@
+﻿@model IEnumerable<RentalCar.Models.AppModels.CarViewModel>
+@{
+    //ViewBag.Title = "AllCars";
+    ViewData["Title"] = "AllCars";
+}
+
+<h2>All Cars</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="btn btn-default">
+        @Html.ActionLink("Add  athent new car", "Create")
+    </div>
+}
+
+<div class="jumbotron">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Make)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Availability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewsCount)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Make)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Availability)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewsCount)
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="btn btn-default">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                        </div>
+                    }
+                    <div class="btn btn-default">
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                    </div>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="btn btn-default">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </div>
+                    }
+                <div class="btn btn-default">
+                    @Html.ActionLink("Reviews", "LoadReviews", new { id = item.Id })
+                </div>
+             </td>
+         </tr>
+    }
+
+     </table>
+</div>
+

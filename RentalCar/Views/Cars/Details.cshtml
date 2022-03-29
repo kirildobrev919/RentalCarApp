@@ -1,0 +1,54 @@
+﻿@model RentalCar.Models.AppModels.CarViewModel
+
+@{
+    //ViewBag.Title = "Details";
+    ViewData["Title"] = "Details";
+}
+
+<h2>Car Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Availability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Availability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewsCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewsCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="btn btn-default">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+        </div>
+    <div class="btn btn-default">
+    @Html.ActionLink("Back to List", "AllCars")
+        </div>
+</p>

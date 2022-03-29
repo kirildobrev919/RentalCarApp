@@ -1,0 +1,54 @@
+﻿@model RentalCar.Models.AppModels.CarReview
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CarReview</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CarId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReviewerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReviewerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Review)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Review)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div class="btn btn-default">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+        </div>
+    <div class="btn btn-default">
+        @Html.ActionLink("Back to List", "AllReviews")
+    </div>
+</p>

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RentalCar.Models.AppModels.CarReview>
+
+@{
+    //ViewBag.Title = "LoadReviews";
+    ViewData["Title"] = "LoadReviews";
+}
+
+<h2>LoadReviews</h2>
+
+<button class="btn btn-default">
+    @*@Html.ActionLink("Add Review", "Create", "Reviews")*@
+    @Html.ActionLink("Add Review", "AddReview", "Reviews", new { id = ViewBag.Id }, null)
+</button>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CarId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Review)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CarId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Reviews", new { id = item.Id }, null) |
+                @Html.ActionLink("Details", "Details", "Reviews", new { id = item.Id }, null) |
+                @Html.ActionLink("Delete", "Delete", "Reviews", new { id = item.Id }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="btn btn-default">
+    @Html.ActionLink("Car Details", "Details", new { id = ViewBag.Id })
+</div>
+<div class="btn btn-default">
+    @Html.ActionLink("All Cars", "AllCars")
+</div>
